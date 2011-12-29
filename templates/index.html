@@ -1,0 +1,142 @@
+<html>
+<head>
+
+    <title>TV Controls &mdash; {{ host }}</title>
+
+    <link 
+    href="{{url_for('static', filename='reset.css')}}" 
+    media="screen" 
+    rel="stylesheet" 
+    type="text/css"></link>
+
+    <link 
+    href="{{url_for('static', filename='text.css')}}" 
+    media="screen" 
+    rel="stylesheet" 
+    type="text/css"></link>
+
+    <link 
+    href="{{url_for('static', filename='960_12_col.css')}}" 
+    media="screen" 
+    rel="stylesheet" 
+    type="text/css"></link>
+
+    <link 
+    href="{{url_for('static', filename='style.css')}}" 
+    media="screen" 
+    rel="stylesheet" 
+    type="text/css"></link>
+
+</head>
+
+<body class="container_12">
+
+<h1 class="grid_12">Controls &mdash; {{ host }}</h1>
+
+<div class="clear"></div>
+
+
+{% if status %}
+<script type="text/javascript">
+    var m = function() {
+        document.getElementById('messages').style.display='none';
+    };
+
+    setTimeout(m,5000);
+
+</script>
+<div class="grid_12" id="messages">
+    <div class="status-message button green">{{ status }}</div>
+</div>
+{% endif %}
+
+<div class="clear"></div>
+
+<div class="buttons">
+
+<h2 class="grid_12">iPlayer</h2>
+
+<div class="grid_6"><a class="button orange" href="/send_click">Send Click to play full screen</a></div>
+<div class="grid_6"><a class="button orange" href="/iplayer_pauseplay">Play/Pause</a></div>
+<div class="grid_6"><a class="button orange" href="/safari_reload">Reload page</a></div>
+<div class="grid_6"><a class="button orange" href="/escape_key">Send Escape</a></div>
+
+<div class="clear"></div>
+
+<h2 class="grid_12">iTunes</h2>
+
+<div class="grid_6"><a class="button orange" href="/itunes_playpause">Play/Pause</a></div>
+
+<div class="clear"></div>
+
+<h2 class="grid_12">Open & Close</h2>
+
+<div class="grid_6"><a class="button orange" href="/open_app?app=Plex">Open Plex</a></div>
+<div class="grid_6"><a class="button orange" href="/quit_app?app=Plex">Quit Plex</a></div>
+
+<div class="grid_6"><a class="button orange" href="/open_app?app=Safari">Open Safari</a></div>
+<div class="grid_6"><a class="button orange" href="/quit_app?app=Safari">Quit Safari</a></div>
+
+<div class="grid_6"><a class="button orange" href="/open_dvdplayer">Open DVD Player</a></div>
+<div class="grid_6"><a class="button orange" href="/quit_app?app=DVD Player">Quit DVD Player</a></div>
+
+<div class="grid_6 prefix_6"><a class="button orange" href="/quit_app?app=Software Update">Quit Software Update</a></div>
+
+<div class="clear"></div>
+
+<h2 class="grid_12">System</h2>
+
+<div class="grid_6"><a class="button orange" href="/sleep">Sleep Mac</a></div>
+<div class="grid_6"><a class="button orange" href="/reboot">Reboot Mac</a></div>
+<div class="grid_6"><a class="button orange" href="/move_mouse">Move mouse</a></div>
+<div class="grid_6"><a class="button orange" href="/eject_disc">Eject disc</a></div>
+
+</div>
+
+<div class="clear"></div>
+
+<hr/>
+
+<div class="grid_12">
+<form method="GET" action="/open_url" class="open-url">
+    <input type="text" size="50" name="url"/>
+    <input type="submit" value="Open in Safari"/>
+</form>
+</div>
+
+<div class="clear"></div>
+
+<hr/>
+
+<div class="grid_6">
+
+    <h2>Bookmarklets</h2>
+
+    <p>Drag these to your bookmarks bar.</p>
+
+    <ul>
+        <li>
+        <a  class="button white"
+            href='javascript:q=location.href;document.location="http://{{ host }}:{{ port }}/open_url?url="+q;'
+            >Open on TV</a> &mdash; open current URL on TV.
+        </li>
+    </ul>
+
+</div>
+
+<div class="grid_6">
+
+    <h2>Debug</h2>
+
+    <ul>
+        <li>Screen res: x = {{ screen[0] }}, y = {{ screen[1] }}</li>
+    </ul>
+</div>
+
+<div class="clear"></div>
+
+<div style="height: 50px;">&nbsp;</div>
+
+</body>
+</html>
+
