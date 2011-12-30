@@ -1,6 +1,5 @@
 import os
 from time import sleep
-import subprocess
 from subprocess import Popen
 
 from mouse import mousemove, mouseclick

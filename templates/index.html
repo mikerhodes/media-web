@@ -54,42 +54,21 @@
 
 <div class="buttons">
 
-<h2 class="grid_12">iPlayer</h2>
 
-<div class="grid_6"><a class="button orange" href="/send_click">Send Click to play full screen</a></div>
-<div class="grid_6"><a class="button orange" href="/iplayer_pauseplay">Play/Pause</a></div>
-<div class="grid_6"><a class="button orange" href="/safari_reload">Reload page</a></div>
-<div class="grid_6"><a class="button orange" href="/escape_key">Send Escape</a></div>
+<!-- dynamic extensions -->
+
+{% for extension in extensions %}
 
 <div class="clear"></div>
 
-<h2 class="grid_12">iTunes</h2>
+<h2 class="grid_12">{{ extension['title'] }}</h2>
 
-<div class="grid_6"><a class="button orange" href="/itunes_playpause">Play/Pause</a></div>
+    {% for button in extension['buttons'] %}
+    <div class="grid_6"><a class="button orange" href="{{ button[1] }}">{{ button[0] }}</a></div>
+    {% endfor %}
 
-<div class="clear"></div>
+{% endfor %}
 
-<h2 class="grid_12">Open & Close</h2>
-
-<div class="grid_6"><a class="button orange" href="/open_app?app=Plex">Open Plex</a></div>
-<div class="grid_6"><a class="button orange" href="/quit_app?app=Plex">Quit Plex</a></div>
-
-<div class="grid_6"><a class="button orange" href="/open_app?app=Safari">Open Safari</a></div>
-<div class="grid_6"><a class="button orange" href="/quit_app?app=Safari">Quit Safari</a></div>
-
-<div class="grid_6"><a class="button orange" href="/open_dvdplayer">Open DVD Player</a></div>
-<div class="grid_6"><a class="button orange" href="/quit_app?app=DVD Player">Quit DVD Player</a></div>
-
-<div class="grid_6 prefix_6"><a class="button orange" href="/quit_app?app=Software Update">Quit Software Update</a></div>
-
-<div class="clear"></div>
-
-<h2 class="grid_12">System</h2>
-
-<div class="grid_6"><a class="button orange" href="/sleep">Sleep Mac</a></div>
-<div class="grid_6"><a class="button orange" href="/reboot">Reboot Mac</a></div>
-<div class="grid_6"><a class="button orange" href="/move_mouse">Move mouse</a></div>
-<div class="grid_6"><a class="button orange" href="/eject_disc">Eject disc</a></div>
 
 </div>
 
