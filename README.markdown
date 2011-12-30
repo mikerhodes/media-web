@@ -17,6 +17,7 @@ And a few other bits.
 Requirements
 ------------
 
+- Python 2.6 or above (only tested with 2.6)
 - Media-web uses the [Flask](http://flask.pocoo.org/) web framework.
 - Most in-built commands are mac-specific.
 
