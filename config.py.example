@@ -1,0 +1,24 @@
+
+
+# Enter your screen resolution here. When media-web
+# is run via launchagent, the standard OS X calls
+# to get monitor resolution return (0,0).
+#
+# The key is any part of your hostname, the selection
+# is made via (see utils.py):
+#
+#    from socket import gethostname
+#    hostname = gethostname().lower()
+#
+#    from config import screen_resolution
+#    for k,v in screen_resolution.items():
+#        if k in hostname:
+#            return v
+
+# Both of these examples are for external monitors
+screen_resolution = {
+        'macbookpro': (1280,1024),
+        'macbook': (1344,756)
+        }
+
+

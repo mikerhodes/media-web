@@ -4,6 +4,18 @@ import sys
 
 from flask import Flask, render_template, session
 
+# Test config.py exists
+try:
+    import config as _
+    _.screen_resolution
+except ImportError:
+    print "ERROR: no config set"
+    print "Please copy config.py.example to config.py and customise."
+    sys.exit(1)
+except AttributeError:
+    print "ERROR: config has required attribute missing - see config.py.example."
+    sys.exit(1)
+
 import utils
 
 extensions = []
