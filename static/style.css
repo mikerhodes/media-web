@@ -4,16 +4,18 @@
 
 
 body {
-    font-size: 20px;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
+
 h1 {
+    font-size: 1em;
     border-bottom: 1px solid #ddd;
 }
 
 h2 {
-    padding-top: 20px;
+    font-size: 1em;
+    padding-top: 10px;
 }
 
 .button {
@@ -68,10 +70,8 @@ h2 {
 
 .buttons div a {
     display: block;
-    padding: 20px 10px;
     text-align: center;
-    margin: 25px;
-    font-size: 1.3em;
+    margin: 7% 5%;
 }
 
 form.open-url {
@@ -81,5 +81,25 @@ form.open-url {
 
 form.open-url input {
     font-size: 1em;
+}
+
+form #open-url-field {
+    width: 70%;
+}
+
+form #open-url-submit {
+    width: 25%;
+}
+
+@media screen and (min-width: 321px) {
+    .container_12 { 
+        width: 40%; 
+        float: left; 
+        margin-left: 30%;
+    }
+
+    .buttons div a {
+        margin: 3% 5%;
+    }
 }
 

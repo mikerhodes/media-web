@@ -3,6 +3,10 @@
 
     <title>TV Controls &mdash; {{ host }}</title>
 
+    <meta name="viewport" content="initial-scale=1.0,
+       width=device-width" />
+    
+
     <link 
     href="{{url_for('static', filename='reset.css')}}" 
     media="screen" 
@@ -22,6 +26,12 @@
     type="text/css"></link>
 
     <link 
+    href="{{url_for('static', filename='grid.css')}}" 
+    media="screen" 
+    rel="stylesheet" 
+    type="text/css"></link>
+
+    <link 
     href="{{url_for('static', filename='style.css')}}" 
     media="screen" 
     rel="stylesheet" 
@@ -31,7 +41,7 @@
 
 <body class="container_12">
 
-<h1 class="grid_12">Controls &mdash; {{ host }}</h1>
+<h1 class="grid_12">{{ host }}</h1>
 
 <div class="clear"></div>
 
@@ -79,8 +89,8 @@
 <!-- This is hardcoded to a function which might not be here? -->
 <div class="grid_12">
 <form method="GET" action="/open_url" class="open-url">
-    <input type="text" size="50" name="url"/>
-    <input type="submit" value="Open in Safari"/>
+    <input type="text" name="url" id="open-url-field"/>
+    <input type="submit" value="Open in Safari" id="open-url-submit"/>
 </form>
 </div>
 

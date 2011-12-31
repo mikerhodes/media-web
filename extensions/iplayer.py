@@ -11,7 +11,7 @@ mediaweb_config = {
         'blueprint': iplayer,
         'title': 'iPlayer',
         'buttons': (
-            ('Send click to play full screen', '/send_click'),
+            ('Start playing', '/send_click'),
             ('Play/pause', '/iplayer_pauseplay'),
             ('Reload page', '/safari_reload'),
             ('Send escape', '/escape_key'),
