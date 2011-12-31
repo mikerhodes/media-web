@@ -4,6 +4,22 @@
 from socket import gethostname
 from config import screen_resolution
 
+from subprocess import Popen
+import os
+
+def execute_as(applescript):
+    cmd = """osascript<<END
+        %s
+    END""" % applescript
+    Popen(cmd, shell=True)
+
+def execute_as_async(applescript):
+    cmd = """osascript<<END
+        %s
+    END""" % applescript
+    os.system(cmd)
+
+
 hostname = gethostname().lower()
 
 def transform_url(url):
@@ -28,3 +44,14 @@ def screen_size():
         if k in hostname:
             return v
 
+
+def is_running(app_name):
+    return True
+    cmd = """osascript -e 'tell application "%(app_name)s" to return running'"""
+
+    #result = subprocess.check_output(cmd, shell=True) # 2.7 only
+
+    process = Popen(cmd % locals(), shell=True)
+    result,err = process.communicate()
+
+    return "true" in result
