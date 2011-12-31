@@ -12,8 +12,9 @@ except ImportError:
     print "ERROR: no config set"
     print "Please copy config.py.example to config.py and customise."
     sys.exit(1)
-except AttributeError:
+except AttributeError, ex:
     print "ERROR: config has required attribute missing - see config.py.example."
+    print ex.args
     sys.exit(1)
 
 import utils
