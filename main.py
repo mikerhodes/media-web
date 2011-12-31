@@ -25,11 +25,13 @@ app = Flask(__name__)
 app.secret_key = 'Njminqche9vugWutU3HVsJQKAB'
 
 # Load all extensions, which define the available buttons
-for root, dirs, files in os.walk('extensions'):
+my_path = os.path.dirname(os.path.realpath(__file__))
+extensions_path = os.path.join(my_path, 'extensions')
+for root, dirs, files in os.walk(extensions_path):
     for name in files:
         if name.endswith(".py") and not name.startswith("__"):
             path = os.path.join(root, name)
-            modulename = path.rsplit('.', 1)[0].replace('/', '.')
+            modulename = 'extensions.' + name.rsplit('.', 1)[0]
             __import__(modulename)
             module = sys.modules[modulename]
             config = module.mediaweb_config
