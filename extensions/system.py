@@ -10,8 +10,8 @@ mediaweb_config = {
         'buttons': (
             ('Sleep Mac', '/sleep'),
             ('Reboot Mac', '/reboot'),
-            ('Move mouse', '/eject_disc'),
-            ('Eject disc', '/move_mouse'),
+            ('Move mouse', '/move_mouse'),
+            ('Eject disc', '/eject_disc'),
             ),
         }
 
