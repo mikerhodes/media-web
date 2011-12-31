@@ -45,7 +45,6 @@
 
 <div class="clear"></div>
 
-
 {% if status %}
 <script type="text/javascript">
     var m = function() {
@@ -62,14 +61,14 @@
 
 <div class="clear"></div>
 
-<div class="buttons">
+<div class="buttons grid_12">
 
 
 <!-- dynamic extensions -->
 
 {% for extension in extensions %}
 
-<div class="clear"></div>
+<div class="button-group">
 
 <h2 class="grid_12">{{ extension['title'] }}</h2>
 
@@ -77,12 +76,14 @@
     <div class="grid_6"><a class="button orange" href="{{ button[1] }}">{{ button[0] }}</a></div>
     {% endfor %}
 
+
+</div>
+
 {% endfor %}
 
 
 </div>
 
-<div class="clear"></div>
 
 <hr/>
 

@@ -65,7 +65,6 @@ h2 {
 
 
 .buttons div {
-    float: left;
 }
 
 .buttons div a {
@@ -91,15 +90,32 @@ form #open-url-submit {
     width: 25%;
 }
 
-@media screen and (min-width: 321px) {
+.buttons div.button-group {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        max-width: 1400px;
+    }
+
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1.15em; }
+
     .container_12 { 
-        width: 40%; 
-        float: left; 
-        margin-left: 30%;
+        width: 90%; 
+        margin-left: 5%;
     }
 
     .buttons div a {
-        margin: 3% 5%;
+        margin: 5% 3% 5% 0;
+    }
+
+    .buttons div.button-group {
+        width: 30%;
+        padding-right: 3%;
+        display: inline-block;
+        vertical-align: top;
     }
 }
 
