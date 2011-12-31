@@ -21,3 +21,4 @@ CVS
 env-office/*
 *.swp
 *.pyc
+config.py
