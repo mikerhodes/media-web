@@ -67,4 +67,26 @@ Running the app
 
 To run the app, run `python main.py` using the python install containing Flask.
 
+To start `media-web` at startup, you need to add an entry to your system's
+LaunchAgents. These are stored in `~/Library/LaunchAgents/`. Create a file
+containing:
+
+    CTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>uk.co.dx13.mediaweb</string>
+        <key>OnDemand</key>
+        <false/>
+        <key>Program</key>
+        <string>/path/to/virtualenv/bin/python</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>python</string>
+            <string>/path/to/media-web/main.py</string>
+        </array>
+    </dict>
+    </plist>
+
+
 
