@@ -67,6 +67,13 @@ Running the app
 
 To run the app, run `python main.py` using the python install containing Flask.
 
+Starting at startup
+-------------------
+
+Firstly, it seems like virtualenv python and starting at startup don't mix. At
+least an hours frustration indicates this. So just use `easy_install flask` to
+install flask into your system python.
+
 To start `media-web` at startup, you need to add an entry to your system's
 LaunchAgents. These are stored in `~/Library/LaunchAgents/`. Create a file
 containing:
@@ -76,10 +83,10 @@ containing:
     <dict>
         <key>Label</key>
         <string>uk.co.dx13.mediaweb</string>
-        <key>OnDemand</key>
-        <false/>
-        <key>Program</key>
-        <string>/path/to/virtualenv/bin/python</string>
+        <key>KeepAlive</key>
+        <true/>
+        <key>RunAtLoad</key>
+        <true/>
         <key>ProgramArguments</key>
         <array>
             <string>python</string>
