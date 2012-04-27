@@ -71,8 +71,9 @@ Starting at startup
 -------------------
 
 Firstly, it seems like virtualenv python and starting at startup don't mix. At
-least an hours frustration indicates this. So just use `easy_install flask` to
-install flask into your system python.
+least, the hour of frustration I spent trying to get the app to run from a virtualenv
+would indicate this. So I suggest just using `easy_install flask` to
+install flask into your system python, and being done with it.
 
 To start `media-web` at startup, you need to add an entry to your system's
 LaunchAgents. These are stored in `~/Library/LaunchAgents/`. Create a file
