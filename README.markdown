@@ -37,11 +37,11 @@ Into this virtualenv, install flask.
 You need to add the Quartz python bindings to your path. You do this by adding 
 a .pth file to the virtualenv's site-packages folder:
 
-$ vim lib/python2.7/site-packages/coregraphics.pth
+    $ vim lib/python2.7/site-packages/coregraphics.pth
 
 Into this file, just put a single line:
 
-/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC
+    /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/PyObjC
 
 Save and quit. Obviously both of these lines need changing if you are not
 using Python 2.7.
