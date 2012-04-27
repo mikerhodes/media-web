@@ -59,6 +59,12 @@ h2 {
 	background: -moz-linear-gradient(top,  #7db72f,  #4e7d0e);
 }
 
+#messages {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .status-message {
     margin: 10px 0 20px 0;
 }
