@@ -76,7 +76,7 @@ install flask into your system python.
 
 To start `media-web` at startup, you need to add an entry to your system's
 LaunchAgents. These are stored in `~/Library/LaunchAgents/`. Create a file
-containing:
+`~/Library/LaunchAgents/mediaweb.plist` containing:
 
     CTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
