@@ -85,5 +85,6 @@ if __name__ == "__main__":
         #print "Deregistering with bonjour"
         #sdRef.close()
         #pybonjour.DNSServiceRefDeallocate(sdRef)
+        pass
 
 
