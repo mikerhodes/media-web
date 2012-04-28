@@ -1,5 +1,6 @@
 from flask import Blueprint, session, redirect, url_for
 from subprocess import Popen
+from random import randint
 
 from mouse import mousemove
 
@@ -60,5 +61,10 @@ def _eject_disc():
     Popen(cmd % locals(), shell=True)
 
 def _move_mouse():
-    mousemove(300,100)
+    # We need to move not always to the same spot
+    # as otherwise it's not spotted as a move.
+    mousemove(
+            randint(200,300),
+            randint(200,300),
+            )
 
