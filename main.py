@@ -55,9 +55,7 @@ def index():
             )
 
 import pybonjour
-import select
 
-service_registered = False
 
 def register_callback(sdRef, flags, errorCode, name, regtype, domain):
     if errorCode == pybonjour.kDNSServiceErr_NoError:
@@ -65,23 +63,27 @@ def register_callback(sdRef, flags, errorCode, name, regtype, domain):
         print '  name    =', name
         print '  regtype =', regtype
         print '  domain  =', domain
-        service_registered = True
 
 
 if __name__ == "__main__":
-    name = "media-web."
-    regtype= "_http._tcp"
-    sdRef = pybonjour.DNSServiceRegister(name=name,
-                                         regtype=regtype,
-                                         port=PORT,
-                                         callBack=register_callback)
-    pybonjour.DNSServiceProcessResult(sdRef)
+    #name = "media-web@%s" % HOST
+    #regtype= "_http._tcp"
+    #sdRef = pybonjour.DNSServiceRegister(name=name,
+                                         #regtype=regtype,
+                                         #port=PORT,
+                                         #callBack=register_callback)
+    #pybonjour.DNSServiceProcessResult(sdRef)
 
-    app.run(
-            host='0.0.0.0', 
-            port=PORT,
-            #debug='Pro' in HOST,
-            debug=True,
-            )
+    try:
+        app.run(
+                host='0.0.0.0', 
+                port=PORT,
+                #debug='Pro' in HOST,
+                debug=True,
+                )
+    except KeyboardInterrupt:
+        #print "Deregistering with bonjour"
+        #sdRef.close()
+        #pybonjour.DNSServiceRefDeallocate(sdRef)
 
 
