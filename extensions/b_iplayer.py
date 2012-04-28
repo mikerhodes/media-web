@@ -58,9 +58,9 @@ def _send_click():
     # These need to be done synchronously
     utils.execute_as_async(cmd)
     sleep(0.5)
-    mouseclick(200, 360)
+    mouseclick(200, 420)
     sleep(0.5)
-    mouseclick(200, 360)
+    mouseclick(200, 420)
 
 def _iplayer_pauseplay():
     if not utils.is_running("Safari"): return
