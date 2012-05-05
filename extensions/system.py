@@ -9,6 +9,7 @@ system = Blueprint('mediaweb_system', __name__)
 mediaweb_config = {
         'blueprint': system,
         'title': 'System',
+        'id': 'system',
         'buttons': (
             ('Sleep Mac', '/sleep'),
             ('Reboot Mac', '/reboot'),

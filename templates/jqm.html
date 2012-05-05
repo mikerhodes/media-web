@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>TV Controls</title> 
+        <link rel="apple-touch-icon" href="{{url_for('static', filename='icon-retina.png')}}"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).bind("mobileinit", function(){
+                $.extend(  $.mobile , {
+                    defaultPageTransition: 'slide'
+                });
+            });
+        </script>
+
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    </head> 
+    <body> 
+
+        <!-- Index page -->
+        <div data-role="page">
+
+            <div data-role="header">
+                <h1>{{ host }}</h1>
+                <a href="/sleep" data-role="button" class="ui-btn-right">Sleep</a>
+            </div><!-- /header -->
+
+
+            <div data-role="content">	
+                <ul data-role="listview" data-inset="true">
+                    {% for extension in extensions %}
+                    <li><a href="#{{ extension['id'] }}">{{ extension['title'] }}</a></li>
+                    {% endfor %}
+                </ul>
+
+
+                {% if status %}
+                <script type="text/javascript">
+                    var m = function() {
+                        document.getElementById('messages').style.display='none';
+                    };
+
+                    setTimeout(m,5000);
+                </script>
+                <div class="ui-body-e ui-bar" id="messages">
+                    <div>{{ status }}</div>
+                </div>
+                {% endif %}
+            </div><!-- /content -->
+
+        </div><!-- /page -->
+
+        <!-- Index page -->
+        {% for extension in extensions %}
+        <div data-role="page" id="{{ extension['id'] }}">
+
+            <div data-role="header">
+                <a href="/" data-role="button" data-icon="arrow-l" data-direction="reverse">Home</a>
+                <h1>{{ extension['title'] }}</h1>
+                <a href="/sleep" data-role="button" class="ui-btn-right">Sleep</a>
+            </div><!-- /header -->
+
+            <div data-role="content">	
+                {% for button in extension['buttons'] %}
+                <a data-role="button" data-ajax="false" class="button orange" href="{{ button[1] }}">{{ button[0] }}</a>
+                {% endfor %}
+            </div><!-- /content -->
+
+        </div><!-- /page -->
+        {% endfor %}
+
+    </body>
+</html>

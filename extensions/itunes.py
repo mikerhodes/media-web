@@ -7,6 +7,7 @@ itunes = Blueprint('mediaweb_itunes', __name__)
 mediaweb_config = {
         'blueprint': itunes,
         'title': 'iTunes',
+        'id': 'itunes',
         'buttons': (
             ('Play/pause', '/itunes_playpause'),
             ),

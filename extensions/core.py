@@ -7,6 +7,7 @@ core = Blueprint('mediaweb_core', __name__)
 mediaweb_config = {
         'blueprint': core,
         'title': 'Open & close',
+        'id': 'open_and_close',
         'buttons': (
             ('Open Plex', '/open_app?app=Plex'),
             ('Close Plex', '/quit_app?app=Plex'),

@@ -6,8 +6,8 @@ from flask import Flask, render_template, session
 
 # Test config.py exists
 try:
-    import config as _
-    _.screen_resolution
+    import config
+    config.screen_resolution
 except ImportError:
     print "ERROR: no config set"
     print "Please copy config.py.example to config.py and customise."
@@ -34,20 +34,34 @@ for root, dirs, files in os.walk(extensions_path):
             modulename = 'extensions.' + name.rsplit('.', 1)[0]
             __import__(modulename)
             module = sys.modules[modulename]
-            config = module.mediaweb_config
-            app.register_blueprint(config['blueprint'])
+            m_config = module.mediaweb_config
+            app.register_blueprint(m_config['blueprint'])
 
-            extensions.append(config)
+            extensions.append(m_config)
+
+            extensions.sort(key=lambda x: config.order.index(x['id']))
 
 PORT = 8080
 HOST = gethostname()
+
+@app.route("/old")
+def old():
+    msg = session.pop('msg', None)
+    return render_template(
+            'index.html',
+            host=HOST,
+            port=PORT,
+            status=msg,
+            screen=utils.screen_size(),
+            extensions=extensions,
+            )
 
 @app.route("/")
 def index():
     msg = session.pop('msg', None)
     return render_template(
-            'index.html',
-            host=HOST,
+            'jqm.html',
+            host=HOST.split('.')[0],
             port=PORT,
             status=msg,
             screen=utils.screen_size(),

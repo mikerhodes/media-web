@@ -10,6 +10,7 @@ iplayer = Blueprint('iplayer', __name__)
 mediaweb_config = {
         'blueprint': iplayer,
         'title': 'iPlayer',
+        'id': 'iplayer',
         'buttons': (
             ('Start playing', '/send_click'),
             ('Play/pause', '/iplayer_pauseplay'),

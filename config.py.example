@@ -21,4 +21,11 @@ screen_resolution = {
         'macbook': (1344,756)
         }
 
+order = [
+        'system',
+        'iplayer',
+        'open_and_close',
+        'itunes',
+        ]
+
 
