@@ -29,12 +29,14 @@ You need to:
 - Install dependencies.
 - Update config.py for your setup.
 
-To install dependencies, it's best to set up a virtualenv for the app. I'd suggest
-*not* using the --no-site-packages option.
+To install dependencies, there are two options:
 
-Into this virtualenv, install flask.
+- Set up a virtualenv for the app. I'd suggest *not* using the --no-site-packages option.
+- If you plan to load the app at startup using the instructions below, use your global python.
 
-You need to add the Quartz python bindings to your path. You do this by adding 
+Into this virtualenv or your system python, install flask.
+
+If using virtualenv, you need to add the Quartz python bindings to your path. You do this by adding 
 a .pth file to the virtualenv's site-packages folder:
 
     $ vim lib/python2.7/site-packages/coregraphics.pth
@@ -48,7 +50,9 @@ using Python 2.7.
 
 Next, you need to update config.py:
 
-Add an entry to the screen_resolution stanza with your screen resolution.
+Change the ordering of entries in the order variable if you want.
+
+Add an entry to the `screen_resolution` stanza with your screen resolution.
 Remove the examples if you want.
 
 The name you use depends on your hostname, the code used to
