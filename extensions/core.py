@@ -32,9 +32,8 @@ def open_url():
     _quit_app("Plex")
     _open_url_in_safari(url)
 
-    result = dict()
-    result['msg'] = "Opened on TV! (You'll need to click Play, unfortunately)"
-    return json.dumps(result)
+    session['msg'] = "Opened on TV! (You'll need to click Play, unfortunately)"
+    return redirect(url_for('index'))
 
 @core.route("/quit_app")
 def quit_app():
