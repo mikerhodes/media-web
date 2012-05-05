@@ -17,6 +17,7 @@ mediaweb_config = {
             ('Play/pause', '/iplayer_pauseplay'),
             ('Reload page', '/safari_reload'),
             ('Send escape', '/escape_key'),
+            ('Close Safari', '/quit_safari'),
             ),
         }
 
@@ -46,6 +47,13 @@ def safari_reload():
     _safari_reload()
     result = dict()
     result['msg'] = "Safari asked to reload the page."
+    return json.dumps(result)
+
+@iplayer.route("/quit_safari")
+def quit_app():
+    _quit_app('safari')
+    result = dict()
+    result['msg'] = "%(app_name)s asked to quit." % locals()
     return json.dumps(result)
 
 
@@ -92,5 +100,13 @@ def _escape_key():
         activate
         tell application "System Events" to key code 53
     end tell
+    """ % locals()
+    utils.execute_as(cmd)
+
+def _quit_app(app_name):
+    cmd = """
+    if application "%(app_name)s" is running
+        tell application "%(app_name)s" to quit
+    end if
     """ % locals()
     utils.execute_as(cmd)
