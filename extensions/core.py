@@ -92,6 +92,7 @@ def _open_url_in_safari(url):
     cmd = """
     tell application "Safari"
         open location "%(url)s"
+        activate
     end tell
     """ % locals()
     utils.execute_as(cmd)
