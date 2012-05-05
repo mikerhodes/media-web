@@ -5,7 +5,6 @@ $(document).bind("mobileinit", function(){
     });
 
 $(document).bind('ready', function() {
-        alert('hi');
         $('a.bg-ajax').bind('click', function(e){
                 e.preventDefault();
                 var that = $(this);
