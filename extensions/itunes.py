@@ -1,3 +1,5 @@
+import json
+
 from flask import Blueprint, session, redirect, url_for
 
 import utils
@@ -16,8 +18,9 @@ mediaweb_config = {
 @itunes.route('/itunes_playpause')
 def itunes_playpause():
     _itunes_playpause()
-    session['msg'] = "Hit pause/play button."
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "Hit pause/play button."
+    return json.dumps(session)
 
 def _itunes_playpause():
     cmd = """

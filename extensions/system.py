@@ -2,6 +2,8 @@ from flask import Blueprint, session, redirect, url_for
 from subprocess import Popen
 from random import randint
 
+import json
+
 from mouse import mousemove
 
 system = Blueprint('mediaweb_system', __name__)
@@ -23,26 +25,30 @@ mediaweb_config = {
 @system.route("/sleep")
 def sleep():
     _sleep_mac()
-    session['msg'] = "Going to sleep!"
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "Going to sleep!"
+    return json.dumps(result)
 
 @system.route("/reboot")
 def reboot():
     _reboot_mac()
-    session['msg'] = "Rebooting!"
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "Rebooting!"
+    return json.dumps(result)
 
 @system.route('/eject_disc')
 def eject_disc():
     _eject_disc()
-    session['msg'] = "Asked for DVD to be ejected."
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "Asked for DVD to be ejected."
+    return json.dumps(result)
 
 @system.route('/move_mouse')
 def move_mouse():
     _move_mouse()
-    session['msg'] = "Mouse moved, screen should wake."
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "Mouse moved, screen should wake."
+    return json.dumps(result)
 
 
 # The commands

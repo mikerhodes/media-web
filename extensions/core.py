@@ -1,3 +1,5 @@
+import json
+
 from flask import Blueprint, session, redirect, request, url_for
 
 import utils
@@ -29,28 +31,33 @@ def open_url():
 
     _quit_app("Plex")
     _open_url_in_safari(url)
-    session['msg'] = "Opened on TV! (You'll need to click Play, unfortunately)"
-    return redirect(url_for('index'))
+
+    result = dict()
+    result['msg'] = "Opened on TV! (You'll need to click Play, unfortunately)"
+    return json.dumps(result)
 
 @core.route("/quit_app")
 def quit_app():
     app_name = request.args['app']
     _quit_app(app_name)
-    session['msg'] = "%(app_name)s asked to quit." % locals()
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "%(app_name)s asked to quit." % locals()
+    return json.dumps(result)
 
 @core.route("/open_app")
 def open_app():
     app_name = request.args['app']
     _open_app(app_name)
-    session['msg'] = "%(app_name)s asked to open." % locals()
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "%(app_name)s asked to open." % locals()
+    return json.dumps(result)
 
 @core.route('/open_dvdplayer')
 def open_dvdplayer():
     _open_dvdplayer()
-    session['msg'] = "DVD Player asked to open and go full screen."
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "DVD Player asked to open and go full screen."
+    return json.dumps(result)
 
 
 # The controls

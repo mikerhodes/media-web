@@ -1,4 +1,5 @@
 from time import sleep
+import json
 
 from flask import Blueprint, session, redirect, url_for
 
@@ -22,26 +23,30 @@ mediaweb_config = {
 @iplayer.route('/send_click')
 def send_click():
     _send_click()
-    session['msg'] = "Send click to location of Bigscreen play area."
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "Send click to location of Bigscreen play area."
+    return json.dumps(result)
 
 @iplayer.route('/iplayer_pauseplay')
 def iplayer_pauseplay():
     _iplayer_pauseplay()
-    session['msg'] = "Hit pause/play button."
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "Hit pause/play button."
+    return json.dumps(result)
 
 @iplayer.route('/escape_key')
 def escape_key():
     _escape_key()
-    session['msg'] = "Sent Safari the Escape key."
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "Sent Safari the Escape key."
+    return json.dumps(result)
 
 @iplayer.route('/safari_reload')
 def safari_reload():
     _safari_reload()
-    session['msg'] = "Safari asked to reload the page."
-    return redirect(url_for('index'))
+    result = dict()
+    result['msg'] = "Safari asked to reload the page."
+    return json.dumps(result)
 
 
 # The controls

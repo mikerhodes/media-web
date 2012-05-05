@@ -8,13 +8,7 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
-        <script type="text/javascript">
-            $(document).bind("mobileinit", function(){
-                $.extend(  $.mobile , {
-                    defaultPageTransition: 'slide'
-                });
-            });
-        </script>
+        <script src="{{url_for('static', filename='jqm.js')}}"></script> 
 
         <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     </head> 
@@ -35,27 +29,13 @@
                     <li><a href="#{{ extension['id'] }}">{{ extension['title'] }}</a></li>
                     {% endfor %}
                 </ul>
-
-
-                {% if status %}
-                <script type="text/javascript">
-                    var m = function() {
-                        document.getElementById('messages').style.display='none';
-                    };
-
-                    setTimeout(m,5000);
-                </script>
-                <div class="ui-body-e ui-bar" id="messages">
-                    <div>{{ status }}</div>
-                </div>
-                {% endif %}
             </div><!-- /content -->
 
         </div><!-- /page -->
 
         <!-- Index page -->
         {% for extension in extensions %}
-        <div data-role="page" id="{{ extension['id'] }}">
+        <div data-role="page" id="{{ extension['id'] }}" class="page">
 
             <div data-role="header">
                 <a href="/" data-role="button" data-icon="arrow-l" data-direction="reverse">Home</a>
@@ -65,8 +45,12 @@
 
             <div data-role="content">	
                 {% for button in extension['buttons'] %}
-                <a data-role="button" data-ajax="false" class="button orange" href="{{ button[1] }}">{{ button[0] }}</a>
+                <a data-role="button" class="bg-ajax" data-goto="{{ button[1] }}">{{ button[0] }}</a>
                 {% endfor %}
+
+                <div class="ui-body-e ui-bar messages" style="display: none">
+                    <div>Nothing to do.</div>
+                </div>
             </div><!-- /content -->
 
         </div><!-- /page -->
