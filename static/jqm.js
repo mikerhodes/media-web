@@ -15,12 +15,9 @@ $(document).bind('pageinit', function() {
                         var messages_el = that.siblings('.messages')
                         
                         messages_el.slideDown().text(msg);
-                        var original_text = $(".ui-btn-text", that).text();
-                        $(".ui-btn-text", that).text("Done!");
 
                         var m = function() {
                             messages_el.slideUp();
-                            $(".ui-btn-text", that).text(original_text);
                         };
 
                         setTimeout(m,3000);
