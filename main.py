@@ -39,7 +39,13 @@ for root, dirs, files in os.walk(extensions_path):
 
             extensions.append(m_config)
 
-            extensions.sort(key=lambda x: config.order.index(x['id']))
+            def order(x):
+                try:
+                    return config.order.index(x['id'])
+                except:
+                    return sys.maxint
+
+            extensions.sort(key=order)
 
 PORT = 8080
 HOST = gethostname()

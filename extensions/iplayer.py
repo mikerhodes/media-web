@@ -53,7 +53,7 @@ def safari_reload():
 def quit_app():
     _quit_app('safari')
     result = dict()
-    result['msg'] = "%(app_name)s asked to quit." % locals()
+    result['msg'] = "Safari asked to quit."
     return json.dumps(result)
 
 
