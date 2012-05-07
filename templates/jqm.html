@@ -19,7 +19,7 @@
 
             <div data-role="header">
                 <h1>{{ host }}</h1>
-                <a href="/sleep" data-role="button" class="ui-btn-right">Sleep</a>
+                <a data-goto="/sleep" data-role="button" class="ui-btn-right bg-ajax">Sleep</a>
             </div><!-- /header -->
 
 
@@ -40,6 +40,23 @@
                         <li>Screen res: x = {{ screen[0] }}, y = {{ screen[1] }}</li>
                     </ul>
                 </div>
+
+                <!-- This is hardcoded to a function which might not be here? -->
+                <div data-role="collapsible" data-mini="true" data-content-theme="c">
+
+                    <h2>Bookmarklets</h2>
+
+                    <p>Drag these to your bookmarks bar.</p>
+
+                    <ul>
+                        <li>
+                        <a  class="button white"
+                            href='javascript:q=location.href;document.location="http://{{ host }}:{{ port }}/open_url?url="+q;'
+                            >Open on TV</a> &mdash; open current URL on TV.
+                        </li>
+                    </ul>
+
+                </div>
             </div><!-- /content -->
 
         </div><!-- /page -->
@@ -51,7 +68,7 @@
             <div data-role="header">
                 <a href="/" data-role="button" data-icon="arrow-l" data-direction="reverse">Home</a>
                 <h1>{{ extension['title'] }}</h1>
-                <a href="/sleep" data-role="button" class="ui-btn-right">Sleep</a>
+                <a data-goto="/sleep" data-role="button" class="ui-btn-right bg-ajax">Sleep</a>
             </div><!-- /header -->
 
             <div data-role="content">	
