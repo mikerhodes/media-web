@@ -17,6 +17,17 @@ except AttributeError, ex:
     print ex.args
     sys.exit(1)
 
+# Bring external libraries into path
+my_path = os.path.dirname(os.path.realpath(__file__))
+lib_path = os.path.join(my_path, 'external')
+for name in [name for name in os.listdir(lib_path)]:
+    full_path = os.path.join(lib_path, name)
+    if os.path.isdir(full_path):
+        #print 'Adding external lib at: %s' % full_path
+        sys.path.append(full_path)
+
+
+
 import utils
 
 extensions = []
